@@ -34,13 +34,13 @@ build() {
 
   # Disable yarn autoclean
   mv .yarnclean .yarnclean_
-  HOME="$FAKEHOME" yarn install --cache-folder "$srcdir/yarn-cache"
-  HOME="$FAKEHOME" yarn build
+  NODE_OPTIONS=--max_old_space_size=8192 HOME="$FAKEHOME" yarn install --cache-folder "$srcdir/yarn-cache"
+  NODE_OPTIONS=--max_old_space_size=8192 HOME="$FAKEHOME" yarn build
 
   #Enable yarn autoclean
   mv .yarnclean_ .yarnclean
   # Remove dev dependencies
-  HOME="$FAKEHOME" yarn install --cache-folder "$srcdir/yarn-cache" --production --ignore-scripts --prefer-offline
+  NODE_OPTIONS=--max_old_space_size=8192 HOME="$FAKEHOME" yarn install --cache-folder "$srcdir/yarn-cache" --production --ignore-scripts --prefer-offline
 }
 
 package() {
