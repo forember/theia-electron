@@ -3,3 +3,5 @@ pkg
 LICENSE
 theia.svg
 *.pkg.*
+*.db.*
+*.files.*
